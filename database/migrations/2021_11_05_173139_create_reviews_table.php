@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +15,15 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            //$table->unsignedBigInteger('product_id');
+            
+            $table->string('customer');
+            $table->text('review');
+            $table->integer('star');
             $table->timestamps();
+
+            $table->foreignId('product_id')->constrained('products');
         });
     }
 
