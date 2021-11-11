@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProductResource;
@@ -10,6 +11,16 @@ use App\Http\Resources\ProductCollection;
 
 class ProductController extends Controller
 {
+
+    function __construct(){
+
+        $this->middleware('auth:api')->except('index','show');
+
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +40,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return 'youpi';
     }
 
     /**
@@ -38,9 +49,20 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request, Product $product)
     {
         //
+        //dd($request);
+        $product->name = $request->name;
+        $product->detail = $request->detail;
+        $product->price = $request->price;
+        $product->discount = $request->discount;
+        $product->stock = $request->stock;
+
+        $product->save();
+        return $request->all();
+        //$this->description = $request->detail;
+
     }
 
     /**
