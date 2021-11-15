@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\ProductResource;
 use Illuminate\Database\Eloquent\Collection;
 use App\Http\Resources\ProductCollection;
+use Facade\FlareClient\Http\Response;
 
 class ProductController extends Controller
 {
@@ -60,7 +61,7 @@ class ProductController extends Controller
         $product->stock = $request->stock;
 
         $product->save();
-        return $request->all();
+        return response()->json(['data' => new ProductResource($product)]);
         //$this->description = $request->detail;
 
     }
@@ -98,6 +99,9 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $product->update($request->all());
+        return response()->json(['data' => new ProductResource($product)]);
+        
     }
 
     /**
@@ -109,5 +113,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+        return response()->json(['data' => new ProductResource($product),'status'=>'deleted']);
     }
 }
