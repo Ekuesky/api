@@ -4,6 +4,8 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     'products' => ProductController::class,
 //     'reviews' => ReviewController::class,
 // ]);
+route::get('/', function(){
+    dd(app());
+});
 Route::apiResource('products', ProductController::class);
 Route::group(['prefix'=>'product'],function(){
     Route::apiResource('/{product}/reviews', ReviewController::class)->except([
@@ -34,3 +39,5 @@ Route::group(['prefix'=>'product'],function(){
 //         // Matches The "/admin/users" URL
 //     });
 // });
+
+Route::get('/test', [TestController::class, 'sendmail']);
