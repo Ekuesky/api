@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'cbe9d33dd6788a67005eabd928773f52143e53c9',
+        'reference' => '1855455fa5076ade1c154f335d0fc0bf3b99e790',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -33,6 +33,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'dansmaculotte/laravel-mail-template' => array(
+            'pretty_version' => 'v3.1.0',
+            'version' => '3.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../dansmaculotte/laravel-mail-template',
+            'aliases' => array(),
+            'reference' => 'aac77172f8b38d00a80d672c7d82beb37f280441',
+            'dev_requirement' => false,
         ),
         'davedevelopment/hamcrest-php' => array(
             'dev_requirement' => true,
@@ -418,7 +427,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'cbe9d33dd6788a67005eabd928773f52143e53c9',
+            'reference' => '1855455fa5076ade1c154f335d0fc0bf3b99e790',
             'dev_requirement' => false,
         ),
         'laravel/passport' => array(
@@ -1383,6 +1392,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => 'da444caae6aca7a19c0c140f68c6182e337d5b1c',
+            'dev_requirement' => false,
+        ),
+        'twilio/sdk' => array(
+            'pretty_version' => '6.33.0',
+            'version' => '6.33.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twilio/sdk',
+            'aliases' => array(),
+            'reference' => 'cbe146990fe4fc2bbccf5fa45b61f8218aa99bc1',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(

@@ -41,3 +41,4 @@ Route::group(['prefix'=>'product'],function(){
 // });
 
 Route::get('/test', [TestController::class, 'sendmail']);
+Route::get('/sms', [TestController::class, 'sendsms']);
